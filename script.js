@@ -90,7 +90,6 @@ genderFilter.addEventListener("change", () => {
 showMoreBtn.addEventListener("click", () => {
   page++;
   getUsers(page);
-  h1
 });
 
 document.addEventListener("DOMContentLoaded", () => {
