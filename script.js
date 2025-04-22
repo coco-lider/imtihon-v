@@ -9,11 +9,15 @@ let savedUsers = [];
 let page = 1;
 
 function getUsers(pageNum) {
+  let h1 = document.createElement('h1');
+  h1.textContent = 'Loading...'
+  userContainer.appendChild(h1)
   fetch("https://randomuser.me/api/?results=10&page=" + pageNum)
     .then((res) => res.json())  
     .then((data) => {
       allUsers = allUsers.concat(data.results);
       renderUsers(allUsers);
+      h1.style.display = 'none'
     });
 }
 
@@ -86,6 +90,7 @@ genderFilter.addEventListener("change", () => {
 showMoreBtn.addEventListener("click", () => {
   page++;
   getUsers(page);
+  h1
 });
 
 document.addEventListener("DOMContentLoaded", () => {
